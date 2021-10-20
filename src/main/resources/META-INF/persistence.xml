@@ -6,7 +6,7 @@
   <persistence-unit name="postgresql">
     <provider>org.hibernate.reactive.provider.ReactivePersistenceProvider</provider>
 
-    <class>com.ukonnra.wonderland.whiterabbit.Employee</class>
+    <class>io.vertx.hibernate.Employee</class>
 
     <properties>
 
