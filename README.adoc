@@ -1,0 +1,43 @@
+= hibernate-reactive-1_0_0-final-bug-test
+
+image:https://img.shields.io/badge/vert.x-4.1.5-purple.svg[link="https://vertx.io"]
+
+This application was generated using http://start.vertx.io
+
+== Building
+
+To launch your tests:
+```
+./gradlew clean test
+```
+
+To package your application:
+```
+./gradlew clean assemble
+```
+
+To run your application:
+```
+./gradlew clean run
+```
+
+== Help
+
+* https://vertx.io/docs/[Vert.x Documentation]
+* https://stackoverflow.com/questions/tagged/vert.x?sort=newest&pageSize=15[Vert.x Stack Overflow]
+* https://groups.google.com/forum/?fromgroups#!forum/vertx[Vert.x User Group]
+* https://gitter.im/eclipse-vertx/vertx-users[Vert.x Gitter]
+
+
+== Bug
+
+When using `1.0.0.Final`, the sessionFactory cannot be created with blocking error, but `1.0.0.CR10` works fine:
+
+```
+17:05:04.327 [vert.x-eventloop-thread-1] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+17:05:04.476 [vert.x-eventloop-thread-1] INFO  org.hibernate.reactive.provider.impl.ReactiveIntegrator - HR000001: Hibernate Reactive Preview
+17:05:04.673 [vert.x-eventloop-thread-1] INFO  org.hibernate.reactive.pool.impl.DefaultSqlClientPool - HR000011: SQL Client URL [jdbc:postgresql://localhost:5432/white-rabbit]
+17:05:04.676 [vert.x-eventloop-thread-1] INFO  org.hibernate.reactive.pool.impl.DefaultSqlClientPoolConfiguration - HR000025: Connection pool size: 10
+17:05:05.405 [vertx-blocked-thread-checker] WARN  io.vertx.core.impl.BlockedThreadChecker - Thread Thread[vert.x-eventloop-thread-1,5,main] has been blocked for 2879 ms, time limit is 2000 ms
+17:05:06.405 [vertx-blocked-thread-checker] WARN  io.vertx.core.impl.BlockedThreadChecker - Thread Thread[vert.x-eventloop-thread-1,5,main] has been blocked for 3880 ms, time limit is 2000 ms
+```
