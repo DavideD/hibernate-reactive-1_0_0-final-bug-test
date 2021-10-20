@@ -12,13 +12,13 @@
 
       <!-- PostgreSQL -->
       <property name="javax.persistence.jdbc.url"
-                value="jdbc:postgresql://localhost:5432/white-rabbit"/>
+                value="jdbc:postgresql://localhost:5432/hreact"/>
 
       <!-- Credentials -->
       <property name="javax.persistence.jdbc.user"
-                value="postgres"/>
+                value="hreact"/>
       <property name="javax.persistence.jdbc.password"
-                value="test1234"/>
+                value="hreact"/>
 
       <!-- The Vert.x SQL Client connection pool size -->
       <property name="hibernate.connection.pool_size"
